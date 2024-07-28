@@ -14,12 +14,15 @@ Tweet App
     <div class="container row gap-3">
         {% for tweet in tweets %}
         <div class="card" style="width: 18rem;">
-            <img src="{{tweet.tweet_img.url}}" class="card-img-top" alt="tweet-image">
+            <img src="{{tweet.tweet_img.url}}" class="card-img-top mt-2" alt="tweet-image">
             <div class="card-body">
               <h5 class="card-title">{{tweet.user.username}}</h5>
               <p class="card-text">{{tweet.tweet_text}}</p>
+
+              {% if tweet.user == user %}
               <a href="{% url "edit_tweet" tweet.id %}" class="btn btn-primary m-2">Edit</a>
               <a href="{% url "delete_tweet" tweet.id %}" class="btn btn-danger">Delete</a>
+              {% endif %}
             </div>
           </div>
         {% endfor %}

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Register Page
+{% endblock %}
+
+
+{% block content %}
+    <h2 class = "text-center mt-4">You are logged out.</h2>
+    
+     <a href="{% url "login" %}">Login again</a>
+
+{% endblock %}

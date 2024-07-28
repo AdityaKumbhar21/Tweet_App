@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Register Page
+{% endblock %}
+
+
+{% block content %}
+    <h2 class = "text-center mt-4">Register to tweet app</h2>
+    <form  method="post" class = 'm-4 form p-4'>
+        {% csrf_token %}
+        {{form}}
+        <button class = 'btn btn-warning mt-4'>Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url "login" %}">Login here</a></p>
+
+{% endblock %}
