@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Tweet App
+{% endblock %}
+
+{% block content %}
+    <h1 class = "text-center mt-5">Are you sure you want to delete?</h1>
+
+    <div class = "d-flex justify-content-center align-items-center mt-4 mb-4">
+        <form  method="post">
+         {% csrf_token %}
+
+        <button class = "btn btn-danger m-4"> Delete </button>
+       
+    </form>
+    <a href="{% url "tweet_display" %}">
+        <button class = "btn btn-secondary">Cancel </button>
+    </a>
+    </div>
+{% endblock %}
