@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Tweet App
+{% endblock %}
+
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center mt-4">
+    <a href="{% url "tweet_create" %}" class="btn btn-primary mb-4 ">Create a tweet</a>
+</div>  
+<h2 class = "mt-8 text-center ">No results found!</h2>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from .models import Tweet
 from .forms import TweetForm, UserRegistration
 from django.contrib.auth.decorators import login_required
@@ -63,4 +63,13 @@ def register(request):
     return render(request, 'registration/register.html',{'form':form})
 
 def log_out_view(request):
-    return render('registration/logged_out.html')
+    return render(request,'registration/logged_out.html')
+
+def search(request):
+    query = request.GET.get('search')
+    if query:
+        if Tweet.objects.filter(tweet_text__icontains = query):
+            tweets = Tweet.objects.filter(tweet_text__icontains = query)
+        else:
+            return render(request,'tweet_app/not_found.html')
+    return render(request, 'tweet_app/search_query.html',{'tweets':tweets})
