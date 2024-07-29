@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!nk=!20+3%7!7fffdk3sn273zxqqxgs*i$k+5wut-&d*lr5g5%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1','.vercel.app']
 
 
 # Application definition
@@ -134,3 +134,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/tweet_app/'
 LOGOUT_REDIRECT_URL = '/tweet_app/'
+
+# api/settings.py
+WSGI_APPLICATION = 'api.wsgi.app'
